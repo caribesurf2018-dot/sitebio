@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Caribe Originals — Streetwear 100% Original em Senador Canedo</title>
+<meta name="description" content="Vestuário, calçados e acessórios de marca original + barbearia no mesmo point. Senador Canedo - GO.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rye&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0b0c0a;
+    --ink-2:#151510;
+    --panel:#1c1c15;
+    --panel-line:#3a382c;
+    --bone:#ede6d3;
+    --bone-dim:#c9c1ab;
+    --brass:#c6952f;
+    --brass-hi:#e3b757;
+    --rust:#8a3324;
+    --teal:#2f6e63;
+    --shadow: 0 20px 50px rgba(0,0,0,.45);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--bone);
+    font-family:'Barlow', sans-serif;
+    font-size:16px;
+    line-height:1.5;
+    overflow-x:hidden;
+    position:relative;
+  }
+
+  /* LOGO DA LOJA FLUTUANDO NO FUNDO */
+  body::after{
+    content:"";
+    position:fixed;
+    top:50%; left:50%;
+    transform:translate(-50%, -50%);
+    width:70vw; max-width:650px; aspect-ratio:1/1;
+    background-image:url("https://drive.google.com/thumbnail?id=1SPhEk0h42x3446S3EwzMXeOwQdXgbu-M&sz=w1000");
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:contain;
+    opacity:0.04;
+    pointer-events:none;
+    z-index:0;
+  }
+
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    pointer-events:none;
+    z-index:999;
+    opacity:.05;
+    mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  h1,h2,h3,h4{margin:0; font-weight:400;}
+  p{margin:0;}
+  a{color:inherit; text-decoration:none;}
+  img, video{max-width:100%; display:block;}
+
+  .display{font-family:'Rye', serif;}
+  .eyebrow{
+    font-family:'Barlow Condensed', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.22em;
+    font-weight:600;
+    font-size:.78rem;
+    color:var(--brass-hi);
+  }
+
+  .wrap{max-width:1160px; margin:0 auto; padding:0 24px; position:relative; z-index:1;}
+
+  .verified-badge{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:18px; height:18px;
+    background:#1da1f2; color:#fff;
+    border-radius:50%;
+    font-size:10px; font-weight:bold;
+    margin-left:5px; vertical-align:middle;
+  }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky; top:0; z-index:200;
+    background:rgba(11,12,10,.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--panel-line);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 24px;
+    max-width:1160px; margin:0 auto;
+  }
+  .brand{
+    display:flex; align-items:center; gap:8px;
+    font-family:'Rye', serif; font-size:1.15rem; color:var(--bone);
+  }
+  .nav-links{display:flex; gap:28px;}
+  .nav-links a{
+    font-family:'Barlow Condensed', sans-serif;
+    text-transform:uppercase; letter-spacing:.08em;
+    font-size:.92rem; font-weight:600; color:var(--bone-dim);
+    transition:color .2s;
+  }
+  .nav-links a:hover{color:var(--brass-hi);}
+  
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:11px 20px; border-radius:3px;
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:700; letter-spacing:.05em; text-transform:uppercase;
+    font-size:.88rem; border:1px solid transparent; cursor:pointer;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .btn-primary{
+    background:linear-gradient(180deg, var(--brass-hi), var(--brass));
+    color:#1b1204; box-shadow:0 8px 20px rgba(198,149,47,.28);
+  }
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 12px 26px rgba(198,149,47,.4);}
+  .btn-ghost{background:transparent; color:var(--bone); border-color:var(--panel-line);}
+  .btn-ghost:hover{border-color:var(--brass-hi); color:var(--brass-hi);}
+  .btn-teal{
+    background:linear-gradient(180deg, #3d8a7c, var(--teal));
+    color:var(--bone); box-shadow:0 8px 20px rgba(47,110,99,.3);
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative; padding:76px 0 60px;
+    border-bottom:1px solid var(--panel-line);
+    background:
+      radial-gradient(ellipse at 82% 18%, rgba(198,149,47,.12), transparent 55%),
+      radial-gradient(ellipse at 10% 90%, rgba(47,110,99,.10), transparent 45%);
+  }
+  .hero-grid{display:grid; grid-template-columns:1.15fr .85fr; gap:40px; align-items:center;}
+  .stamp{
+    position:relative; width:132px; height:132px;
+    border:2px solid var(--brass-hi); border-radius:50%;
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    transform:rotate(-9deg); color:var(--brass-hi); flex-shrink:0;
+    background:rgba(198,149,47,.05);
+  }
+  .stamp::before{
+    content:""; position:absolute; inset:6px;
+    border:1px dashed var(--brass-hi); border-radius:50%; opacity:.6;
+  }
+  .stamp span{
+    font-family:'Barlow Condensed', sans-serif; font-weight:700;
+    letter-spacing:.08em; font-size:.72rem; line-height:1.35; text-transform:uppercase;
+  }
+  .stamp b{display:block; font-family:'Rye', serif; font-size:1.05rem; margin:2px 0;}
+
+  .hero h1{font-size:clamp(2.6rem, 6vw, 4.6rem); line-height:1.02; color:var(--bone);}
+  .hero h1 em{font-style:normal; color:var(--brass-hi);}
+  .hero-sub{margin-top:20px; max-width:480px; font-size:1.08rem; color:var(--bone-dim);}
+  .hero-ctas{display:flex; gap:14px; margin-top:32px; flex-wrap:wrap;}
+
+  /* CARROSSEL FACHADA */
+  .hero-art{position:relative; display:flex; align-items:center; justify-content:center; min-height:340px;}
+  .hero-photo{
+    width:100%; max-width:420px; border:8px solid var(--bone);
+    border-bottom-width:34px; border-radius:2px; transform:rotate(2.5deg);
+    box-shadow:var(--shadow); background:var(--bone); position:relative;
+    overflow:hidden; aspect-ratio:16/10;
+  }
+  .hero-photo img, .hero-photo video{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+    opacity:0; transition:opacity 1s ease-in-out;
+  }
+  .hero-photo img.active, .hero-photo video.active{ opacity:1; }
+
+  /* ---------- TICKER ---------- */
+  .ticker-wrap{
+    border-bottom:1px solid var(--panel-line); background:var(--ink-2);
+    padding:16px 0; overflow:hidden; white-space:nowrap;
+  }
+  .ticker-track{display:inline-flex; animation:ticker 40s linear infinite;}
+  .ticker-track span{
+    font-family:'Barlow Condensed', sans-serif; font-weight:600;
+    letter-spacing:.14em; text-transform:uppercase; font-size:.95rem;
+    color:var(--bone-dim); padding:0 22px; display:inline-flex; align-items:center; gap:22px;
+  }
+  .ticker-track span::after{content:"✦"; color:var(--brass); font-size:.7rem;}
+  @keyframes ticker{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:84px 0;}
+  .section-head{max-width:640px; margin-bottom:48px;}
+  .section-head h2{font-size:clamp(1.9rem, 3.6vw, 2.7rem); margin-top:10px; color:var(--bone);}
+  .section-head p{margin-top:14px; color:var(--bone-dim); font-size:1.02rem;}
+
+  /* ---------- FEATURED DROP ---------- */
+  .feat-drop{
+    background:linear-gradient(160deg, rgba(47,110,99,.12), transparent 55%), var(--ink-2);
+    border-top:1px solid var(--panel-line);
+  }
+  .drop-grid{display:grid; grid-template-columns:1fr 1fr; gap:22px;}
+  .drop-card{
+    background:var(--panel); border:1px solid var(--panel-line); border-radius:6px;
+    padding:32px 28px; border-top:3px solid var(--teal);
+    display:flex; flex-direction:column; justify-content:space-between;
+  }
+  .drop-card-brand{
+    max-height:60px; width:auto; object-fit:contain; object-position:left; margin-bottom:16px;
+  }
+  .drop-card h3{font-size:1.9rem; color:var(--bone); margin-top:4px;}
+  .drop-card p{margin-top:12px; color:var(--bone-dim);}
+
+  /* ---------- STICKER WALL (MARCAS) ---------- */
+  .sticker-wall{
+    display:grid; grid-template-columns:repeat(5, 1fr); gap:20px; align-items:center;
+  }
+  .sticker{
+    aspect-ratio:1/1; border-radius:14px; display:flex; align-items:center; justify-content:center;
+    padding:18px; background:#ffffff; box-shadow:0 10px 24px rgba(0,0,0,.35);
+    transition:transform .25s ease; border:1px solid rgba(255,255,255,.2);
+  }
+  .sticker img{width:100%; height:100%; object-fit:contain; transition:opacity 0.5s ease;}
+  .sticker.r1{transform:rotate(-4deg);}
+  .sticker.r2{transform:rotate(3deg);}
+  .sticker.r3{transform:rotate(-2deg);}
+  .sticker:hover{transform:rotate(0deg) translateY(-6px) scale(1.04);}
+  .sticker.more{
+    background:var(--panel) !important; border:1px dashed var(--brass-hi);
+    color:var(--brass-hi); text-align:center; font-family:'Barlow Condensed', sans-serif;
+    font-weight:700; text-transform:uppercase; font-size:.92rem;
+    display:flex; align-items:center; justify-content:center; text-decoration:none;
+  }
+
+  /* ---------- GALLERY INTERIOR ---------- */
+  .gallery-masonry{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:16px;
+  }
+  .gallery-item{
+    border-radius:6px; overflow:hidden; border:1px solid var(--panel-line);
+    position:relative; background:var(--panel);
+  }
+  .gallery-item.tall{ aspect-ratio:3/4; }
+  .gallery-item.wide{ aspect-ratio:16/9; grid-column:span 2; }
+  .gallery-item.square{ aspect-ratio:1/1; }
+
+  .gallery-item img, .gallery-item video{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+    opacity:0; transition:opacity 1s ease-in-out;
+  }
+  .gallery-item img.active, .gallery-item video.active{ opacity:1; }
+
+  /* ---------- BARBEARIA ---------- */
+  .barber{
+    background:linear-gradient(135deg, rgba(138,51,36,.18), rgba(11,12,10,0) 60%), var(--ink-2);
+    border-top:1px solid var(--panel-line); border-bottom:1px solid var(--panel-line);
+  }
+  .barber-grid{display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;}
+  .barber-slider{
+    width:100%; aspect-ratio:4/3; border-radius:8px; overflow:hidden;
+    border:1px solid var(--panel-line); position:relative; box-shadow:var(--shadow);
+  }
+  .barber-slider img, .barber-slider video{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+    opacity:0; transition:opacity 1s ease-in-out;
+  }
+  .barber-slider img.active, .barber-slider video.active{ opacity:1; }
+
+  /* ---------- LOCATION / MAPA ---------- */
+  .loc-grid{display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:stretch;}
+  .loc-card{
+    background:var(--panel); border:1px solid var(--panel-line); border-radius:8px; padding:34px;
+  }
+  .loc-card h3{
+    font-family:'Barlow Condensed', sans-serif; text-transform:uppercase;
+    font-weight:700; letter-spacing:.04em; font-size:1.1rem; color:var(--brass-hi); margin-bottom:18px;
+  }
+  .loc-row{display:flex; gap:14px; padding:12px 0; border-bottom:1px solid var(--panel-line);}
+  .loc-row:last-of-type{border-bottom:none;}
+  .loc-row div span{display:block; font-size:.78rem; text-transform:uppercase; letter-spacing:.08em; color:var(--bone-dim); font-family:'Barlow Condensed',sans-serif;}
+  .loc-row div strong{font-weight:600; color:var(--bone);}
+
+  .map-container{
+    border-radius:8px; overflow:hidden; border:1px solid var(--panel-line);
+    min-height:350px; width:100%; height:100%;
+  }
+  .map-container iframe{width:100%; height:100%; min-height:350px; border:0;}
+
+  /* ---------- FOOTER RESTAURADO ---------- */
+  footer{border-top:1px solid var(--panel-line); padding:60px 0 40px; background:var(--ink-2);}
+  .foot-grid{display:grid; grid-template-columns:2fr 1fr 1.2fr 1.2fr; gap:40px;}
+  .foot-brand p{margin-top:14px; color:var(--bone-dim); font-size:.95rem; line-height:1.6;}
+  .foot-col h4{
+    font-family:'Barlow Condensed', sans-serif; text-transform:uppercase;
+    letter-spacing:.12em; font-weight:700; font-size:.92rem; color:var(--brass-hi);
+    margin-bottom:18px;
+  }
+  .foot-col ul{list-style:none; padding:0; margin:0;}
+  .foot-col ul li{margin-bottom:10px;}
+  .foot-col ul li a{color:var(--bone-dim); font-size:.92rem; transition:color .2s;}
+  .foot-col ul li a:hover{color:var(--bone);}
+  .foot-info{color:var(--bone-dim); font-size:.92rem; line-height:1.6;}
+  .foot-info strong{color:var(--bone); display:block; margin-top:4px;}
+  .foot-bottom{
+    margin-top:48px; padding-top:24px; border-top:1px solid var(--panel-line);
+    display:flex; justify-content:space-between; align-items:center; color:var(--bone-dim);
+    font-size:.85rem; font-family:'Barlow Condensed', sans-serif; letter-spacing:.05em;
+  }
+
+  @media (max-width: 880px){
+    .nav-links{display:none;}
+    .hero-grid, .drop-grid, .barber-grid, .loc-grid{grid-template-columns:1fr;}
+    .gallery-masonry{grid-template-columns:1fr;}
+    .gallery-item.wide{grid-column:span 1;}
+    .sticker-wall{grid-template-columns:repeat(3,1fr); gap:14px;}
+    .foot-grid{grid-template-columns:1fr; gap:32px;}
+    .foot-bottom{flex-direction:column; gap:12px; text-align:center;}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <img src="https://drive.google.com/thumbnail?id=1SPhEk0h42x3446S3EwzMXeOwQdXgbu-M&sz=w200" alt="Caribe Originals" style="width:30px;height:auto;">
+      Caribe Originals <span class="verified-badge" title="Verificado">✓</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#destaque">Coleção</a>
+      <a href="#marcas">Marcas</a>
+      <a href="#loja">A loja</a>
+      <a href="#barbearia">Barbearia</a>
+      <a href="#localizacao">Localização</a>
+    </nav>
+    <a class="btn btn-primary" href="https://wa.me/5562981053328" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="hero-eyebrow-row">
+        <span class="eyebrow">Senador Canedo — GO</span>
+      </div>
+      <h1 class="display">Nada de<br><em>falsificado.</em></h1>
+      <p class="hero-sub">Streetwear, surf e skate direto das marcas que valem a pena — camiseta, tênis e acessório 100% original.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="https://wa.me/5562981053328" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+        <a class="btn btn-ghost" href="https://www.instagram.com/caribeoriginals/" target="_blank" rel="noopener">Seguir @caribeoriginals</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="hero-photo" id="hero-slider">
+        <img src="https://drive.google.com/thumbnail?id=1VC4ZLO9QJFNxGfdXrwNw23jvivUd29yJ&sz=w1000" class="active" alt="Fachada 1">
+        <img src="https://drive.google.com/thumbnail?id=17uOGkqTy1BWBHqRTFvdU2BC_ZRpZCp6z&sz=w1000" alt="Fachada 2">
+      </div>
+      <div class="stamp hero-stamp">
+        <span><b>100%</b>Original</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Blunt</span><span>MCD</span><span>Oakley</span><span>Ecko</span><span>Kenner</span><span>Cyclone</span><span>Monkey137</span><span>Simple</span><span>Qix</span><span>Hocks</span><span>Nhamo</span><span>Plano C.</span><span>...Lost</span>
+  </div>
+</div>
+
+<section id="destaque" class="feat-drop">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Peça rara por aqui</span>
+      <h2 class="display">Coleção completa. Ninguém mais tem.</h2>
+    </div>
+    <div class="drop-grid">
+      <div class="drop-card">
+        <div>
+          <img src="https://drive.google.com/thumbnail?id=1GRSUxOhK0U6aEY5LwMeKbqwouyv6DfMG&sz=w500" class="drop-card-brand" alt="Monkey137 Logo">
+          <span class="eyebrow">Linha completa</span>
+          <h3 class="display">Monkey137</h3>
+          <p>Coleção inteira disponível na loja — do básico ao destaque, sem faltar peça.</p>
+        </div>
+      </div>
+      <div class="drop-card">
+        <div>
+          <img src="https://drive.google.com/thumbnail?id=1cZRmQi06mOWIRbmZC7LtiVfUkHr0F2g9&sz=w500" class="drop-card-brand" alt="Cyclone Logo">
+          <span class="eyebrow">Textura exclusiva</span>
+          <h3 class="display">Cyclone Veludo</h3>
+          <p>O caimento em veludo que diferencia — peça que você não encontra em qualquer loja de rua.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="marcas">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Na prateleira</span>
+      <h2 class="display">As marcas que você já confia.</h2>
+    </div>
+    <div class="sticker-wall" id="brands-grid">
+      <div class="sticker r1"><img src="" alt="Marca"></div>
+      <div class="sticker r2"><img src="" alt="Marca"></div>
+      <div class="sticker r3"><img src="" alt="Marca"></div>
+      <div class="sticker r1"><img src="" alt="Marca"></div>
+      <div class="sticker r2"><img src="" alt="Marca"></div>
+      <div class="sticker r3"><img src="" alt="Marca"></div>
+      <div class="sticker r1"><img src="" alt="Marca"></div>
+      <div class="sticker r2"><img src="" alt="Marca"></div>
+      <div class="sticker r3"><img src="" alt="Marca"></div>
+      <a class="sticker more" href="https://www.instagram.com/caribeoriginals/" target="_blank" rel="noopener">
+        + ver tudo<br>no Insta
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="loja">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Visite a loja</span>
+      <h2 class="display">Interior da loja.</h2>
+    </div>
+    <div class="gallery-masonry">
+      <div class="gallery-item tall" id="interior-slider-1">
+        <img src="https://drive.google.com/thumbnail?id=17Ao8hU4kcl231U159HGCRcUUdMn8XqhM&sz=w1000" class="active" alt="Interior 1">
+        <img src="https://drive.google.com/thumbnail?id=1fWfvkLzDQcmNB8szXcj-sfFn_pQoLpBo&sz=w1000" alt="Interior 2">
+      </div>
+      <div class="gallery-item wide" id="interior-slider-2">
+        <img src="https://drive.google.com/thumbnail?id=1cpO-tITifEhzg56FEVFsZZ7njgUzyJtg&sz=w1000" class="active" alt="Interior Wide">
+      </div>
+      <div class="gallery-item square" id="interior-slider-3">
+        <img src="https://drive.google.com/thumbnail?id=1mtoQGLGwi2jcWdnphxJZgbZQTlnHq-kf&sz=w1000" class="active" alt="Interior Detalhe">
+      </div>
+      <div class="gallery-item tall" id="interior-slider-4">
+        <img src="https://drive.google.com/thumbnail?id=1YOM8yDS5PkltTWJ3pwamw9ZvufKxr7fg&sz=w1000" class="active" alt="Interior Araras">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="barbearia" class="barber">
+  <div class="wrap barber-grid">
+    <div>
+      <span class="eyebrow">No mesmo endereço</span>
+      <h2 class="display">Corte na Caribe Barbearia.</h2>
+      <p style="margin-top:14px; color:var(--bone-dim);">Roupa nova sem cabelo em dia não fecha o visual. Agende seu horário com a gente.</p>
+      <div style="margin-top:24px; display:flex; gap:12px; flex-wrap:wrap;">
+        <a class="btn btn-teal" href="https://wa.me/5562999718140" target="_blank" rel="noopener">Agendar corte</a>
+        <a class="btn btn-ghost" href="https://www.instagram.com/caribe_barbearia/" target="_blank" rel="noopener">Insta Barbearia</a>
+      </div>
+    </div>
+    <div class="barber-slider" id="barber-slider">
+      <img src="https://drive.google.com/thumbnail?id=1zAaST04zXe3DAg3ALWeHeRDRjDkMi96y&sz=w1000" class="active" alt="Barbearia 1">
+      <img src="https://drive.google.com/thumbnail?id=1xoISSDIvmE7WUll9mVBVskgMDLD1HdMS&sz=w1000" alt="Barbearia 2">
+      <img src="https://drive.google.com/thumbnail?id=1hPH2kpTJv1sv8FAbcAAxuJ-SeoMOEV09&sz=w1000" alt="Barbearia 3">
+      <img src="https://drive.google.com/thumbnail?id=1kxHPoSwtjfr-zeo3df6LlOdU3D6cpCp7&sz=w1000" alt="Barbearia 4">
+      <img src="https://drive.google.com/thumbnail?id=1YENQi02y3FBQyBTrvt8Pmwq7m5vRn1Ik&sz=w1000" alt="Barbearia 5">
+      <img src="https://drive.google.com/thumbnail?id=18ngXAksa-JANecVI_WRBudWI4Sif0_Zy&sz=w1000" alt="Barbearia 6">
+      <img src="https://drive.google.com/thumbnail?id=12TCOtpDt1tD46cRXZWmowXeBYVmi3ODu&sz=w1000" alt="Barbearia 7">
+      <img src="https://drive.google.com/thumbnail?id=1l78vXO1Nq77inDlHeTqQWwoz6BJFxdGi&sz=w1000" alt="Barbearia 8">
+      <img src="https://drive.google.com/thumbnail?id=1SkTRGlyXm1or6u2npHWR1sBKMxO7vpj6&sz=w1000" alt="Barbearia 9">
+      <img src="https://drive.google.com/thumbnail?id=1Q-cGa-d6CrxakAyhOsN2PorI4BgiO85y&sz=w1000" alt="Barbearia 10">
+    </div>
+  </div>
+</section>
+
+<section id="localizacao">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Endereço & horário</span>
+      <h2 class="display">Bora fechar o visual.</h2>
+    </div>
+    <div class="loc-grid">
+      <div class="loc-card">
+        <h3>Caribe Originals</h3>
+        <div class="loc-row">
+          <div><span>Endereço</span><strong>Rua Osires Teixeira, esq. c/ Benjamim Santos, Qd2G Lt1, sala 1 — Jardim de Todos os Santos, Senador Canedo - GO</strong></div>
+        </div>
+        <div class="loc-row">
+          <div><span>Horário</span><strong>Segunda a sábado · 09h às 19h</strong></div>
+        </div>
+        <div style="margin-top:22px;">
+          <a class="btn btn-primary" href="https://wa.me/5562981053328" target="_blank" rel="noopener">WhatsApp Loja</a>
+        </div>
+      </div>
+      <div class="map-container">
+        <iframe src="https://maps.google.com/maps?q=Rua%20Osires%20Teixeira%20Senador%20Canedo&t=&z=15&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand">
+          <img src="https://drive.google.com/thumbnail?id=1SPhEk0h42x3446S3EwzMXeOwQdXgbu-M&sz=w200" alt="Caribe Originals" style="width:30px;">
+          Caribe Originals <span class="verified-badge">✓</span>
+        </div>
+        <p>Moda street, surf e skate 100% original, com barbearia completa no mesmo point. Estilo e atitude pra quem vive a rua.</p>
+      </div>
+
+      <div class="foot-col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#destaque">Loja</a></li>
+          <li><a href="#marcas">Marcas</a></li>
+          <li><a href="#destaque">Diferenciais</a></li>
+          <li><a href="#barbearia">Barbearia</a></li>
+          <li><a href="#localizacao">Contato</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h4>Contato</h4>
+        <div class="foot-info">
+          Loja: <strong>(62) 98105-3328</strong>
+          <br>
+          Barbearia: <strong>(62) 9 9971-8140</strong>
+          <br>
+          Atendimento: <strong>Seg–Sáb · 09h–19h</strong>
+          <br>
+          Instagram: <a href="https://www.instagram.com/caribeoriginals/" target="_blank" rel="noopener" style="color:var(--brass-hi);">@caribeoriginals</a>
+        </div>
+      </div>
+
+      <div class="foot-col">
+        <h4>Endereço</h4>
+        <div class="foot-info">
+          Rua Osires Teixeira, Qd2G Lt1<br>
+          Jardim de Todos os Santos<br>
+          Senador Canedo — GO
+        </div>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <span>Caribe Originals — feito pra quem vive o estilo de rua.</span>
+      <span>© 2026 Caribe Originals. Todos os direitos reservados.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function setupSlider(containerId, intervalTime) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    const items = container.querySelectorAll('img, video');
+    if (items.length < 2) return;
+    let currentIndex = 0;
+
+    setInterval(() => {
+      items[currentIndex].classList.remove('active');
+      let newIndex = Math.floor(Math.random() * items.length);
+      if (newIndex === currentIndex) newIndex = (currentIndex + 1) % items.length;
+      currentIndex = newIndex;
+      items[currentIndex].classList.add('active');
+    }, intervalTime);
+  }
+
+  setupSlider('hero-slider', 3500);
+  setupSlider('interior-slider-1', 3000);
+  setupSlider('interior-slider-2', 4000);
+  setupSlider('interior-slider-3', 3200);
+  setupSlider('interior-slider-4', 3800);
+  setupSlider('barber-slider', 2800);
+
+  const brandLogos = [
+    'https://drive.google.com/thumbnail?id=12-worMDaMId5Q5D3hjDG4jTCzlHg-xd6&sz=w300',
+    'https://drive.google.com/thumbnail?id=13fFQIa_psBRxx5ZwPlVzCOaqPuK2jV7L&sz=w300',
+    'https://drive.google.com/thumbnail?id=17rER7PLamC_eNFgXhfcEYeHIAw9YVhP3&sz=w300',
+    'https://drive.google.com/thumbnail?id=1CymNmMlZlVMWRZ-gc357AzXrLyBuMzti&sz=w300',
+    'https://drive.google.com/thumbnail?id=1FBr8SqOMA60T9Ol8YdJSBvS1Tkporlzr&sz=w300',
+    'https://drive.google.com/thumbnail?id=1GRSUxOhK0U6aEY5LwMeKbqwouyv6DfMG&sz=w300',
+    'https://drive.google.com/thumbnail?id=1c3Q7hO7TwqznATsOmDwW7E4Pu1pfT7tI&sz=w300',
+    'https://drive.google.com/thumbnail?id=1cZRmQi06mOWIRbmZC7LtiVfUkHr0F2g9&sz=w300',
+    'https://drive.google.com/thumbnail?id=1gQxyvhP7B25iISi9DKk4vz2eZsH5HT2d&sz=w300',
+    'https://drive.google.com/thumbnail?id=1uFYGIN4DLAClhSJi7hh4ckYyqq5IBhsf&sz=w300',
+    'https://drive.google.com/thumbnail?id=1zfJ8QqKDhUgoMd21-JNNZqGYmqFWdv2-&sz=w300'
+  ];
+
+  function updateBrands() {
+    const slots = document.querySelectorAll('#brands-grid .sticker:not(.more) img');
+    let shuffled = [...brandLogos].sort(() => 0.5 - Math.random());
+    
+    slots.forEach((img, i) => {
+      img.style.opacity = '0';
+      setTimeout(() => {
+        img.src = shuffled[i % shuffled.length];
+        img.style.opacity = '1';
+      }, 300);
+    });
+  }
+
+  updateBrands();
+  setInterval(updateBrands, 4000);
+</script>
+
+</body>
+</html>
